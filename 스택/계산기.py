@@ -1,4 +1,3 @@
-from inspect import stack
 import sys
 
 class Stack:
