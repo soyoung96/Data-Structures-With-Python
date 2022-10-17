@@ -3,4 +3,4 @@ class Node:
         self.key =key
         self.link = None
     def __str__(self):
-        return self.key
+        return str(self.key)
