@@ -56,6 +56,33 @@ class BST:
             self.size +=1
             return newNode
         
+    def rotateRight(self,node): # O(1)
+        if node == None:
+            return None
+        x = node.left
+        if(x == None):
+            return None
+        b = node.right
+        x.parent = node.parent
+        if node.parent != None: #node가 root가 아니면
+            if node.parent.left == node:#자식으로 x연결
+                node.parent.left = x
+            else:
+                node.parent.right = x
+        else:
+            self.root = x #기존 node가 root이면 이제 x가 루트가 됌
+        
+        x.right = node #기존 노드 x의 자식으로
+        node.parent = x
+
+        node.left = b # node의 왼쪽 자식으로 b 설정
+        if b!=None:
+            b.parent = node
+        
+        
+
+
+
 
     def deleteByMerging(self,node):
         l = node.left
@@ -93,7 +120,7 @@ class BST:
                     p.right = None
         
         self.size -=1
-        return
+        return None
         
 
 
